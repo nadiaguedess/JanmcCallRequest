@@ -13,9 +13,11 @@ $qtdUsuario = mysqli_fetch_assoc($qtdUsuario);
 
 $buscarUltimosChamados = $var->freeRun("select idchamado, assuntochamado from chamado order by idchamado desc limit 7;");
 
+$buscarUltimosAtribuidosAMim = $var->freeRun("select idchamado, assuntochamado from chamado where analistaatendendo = ".$_SESSION['ID']." order by idchamado desc limit 7;");
+
 $buscarChamadosConcluidos = $var->freeRun("select idchamado from chamado where status_idstatus = 6");
 
-$buscarChamadosAndamento = $var->freeRun("select idchamado from chamado where status_idstatus = 5");
+$buscarChamadosAndamento = $var->freeRun("select idchamado from chamado where status_idstatus in (4,5)");
 
 
 ?>
@@ -93,7 +95,7 @@ $buscarChamadosAndamento = $var->freeRun("select idchamado from chamado where st
     <!-- Card -->
     <div class="card mb-3 mb-md-4 h-100">
       <div class="card-header d-flex">
-        <h5 class="h6 text-uppercase font-weight-semi-bold mb-0"></h5>
+        <h5 class="h6 text-uppercase font-weight-semi-bold mb-0">Atribuídos a mim</h5>
 
         <div class="position-relative ml-auto">
           <a id="dropDownRoadmap" class="unfold-invoker d-flex text-muted" href="#" aria-controls="drop4Roadmap"
@@ -106,19 +108,36 @@ $buscarChamadosAndamento = $var->freeRun("select idchamado from chamado where st
       </div>
       <div class="card-body p-0">
 
-        <div class="border-top d-flex align-items-center py-3 px-3 px-md-4">
-          <div>
-            <h6 class="mb-0">
-            </h6>
-            <small class="text-muted"></small>
+        <?php
+            $buscarUltimosAtribuidosAMimCount = mysqli_num_rows($buscarUltimosAtribuidosAMim);
+        ?>
+
+        <?php
+
+            for ($x = 0; $x < $buscarUltimosAtribuidosAMimCount; $x++) /*estrutura de repeticao FOR*/ {
+                $linhaUltiChamAMim = mysqli_fetch_assoc($buscarUltimosAtribuidosAMim);
+
+        ?>
+
+        <div class="row align-items-center justify-content-between border-top p-3 mb-md-2 p-md-4 mx-0">
+          <div class="col-4">
+            <div class="d-inline-block icon icon-xs bg-soft-success rounded-circle mr-2">
+
+              <i class="nova-check icon-text icon-text-xs d-inline-block text-success"></i>
+            </div>
+            #<?php echo $linhaUltiChamAMim['idchamado'];?>
           </div>
 
-          <div class="ml-auto">
-            <i class="nova-check icon-text icon-text-xs text-secondary ml-2"></i>
+
+          <div class="col-8">
+            <?php echo $linhaUltiChamAMim['assuntochamado'];?>
           </div>
+
+
         </div>
-
-
+        <?php
+          }
+        ?>
 
 
       </div>
@@ -196,43 +215,15 @@ $buscarChamadosAndamento = $var->freeRun("select idchamado from chamado where st
       </div>
       <div class="card-body p-0">
         <div class="row mb-3 mb-md-9">
-          <div class="col-6 text-right pr-3 pr-md-4">
+          <div class="col-6 text-center pr-3 pr-md-4">
             <div class="h3 mb-0">
-              <span class="text-info"></span>
+              <span class="text-info"><?php echo mysqli_num_rows($buscarChamadosConcluidos);?></span>
             </div>
-            <small class="text-muted">
-            </small>
+
           </div>
 
-          <div class="col-6 border-left pl-3 pl-md-4">
-            <div class="h3 mb-0">
-              <span class="text-success"></span>
-            </div>
-            <small class="text-muted">
-            </small>
-          </div>
         </div>
 
-
-        <div class="border-bottom media align-items-center p-3">
-
-          <div class="media-body d-flex align-items-center mr-2">
-            <span>SEMANA</span>
-            <span class="ml-auto"></span>
-          </div>
-
-          <i class="nova-user icon-text icon-text-xs d-flex text-success ml-auto"> </i>
-        </div>
-
-        <div class="media align-items-center p-3">
-
-          <div class="media-body d-flex align-items-center mr-2">
-            <span>MÊS</span>
-            <span class="ml-auto"></span>
-          </div>
-
-          <i class="nova-user icon-text icon-text-xs d-flex text-success ml-auto"> </i>
-        </div>
       </div>
     </div>
     <!-- End Card -->

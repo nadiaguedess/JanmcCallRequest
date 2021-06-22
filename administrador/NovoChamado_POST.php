@@ -165,9 +165,6 @@ require_once("../banco/ConexaoVFBCompany.php");
         if (IsNullOrEmptyString($_POST['idtxtDataInicio'])) {
             $mensagemCritica .= "<li>O Campo Início da Ocorrência deve ser preenchido!</li>";
         }
-        if (!IsNullOrEmptyString($_POST['idtxtConclusao'])) {
-            $mensagemCritica .= "<li>O Campo Conclusão não deve ser preenchido!</li>";
-        }
         if (!IsNullOrEmptyString($_POST['idtxtDataCancelamento'])) {
             $mensagemCritica .= "<li>O Campo Cancelamento não deve ser preenchido!</li>";
         }

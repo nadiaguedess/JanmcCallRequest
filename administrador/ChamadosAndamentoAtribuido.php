@@ -40,7 +40,7 @@
                     INNER JOIN usuario usuarioAfetado ON 
                       usuarioAfetado.idusuario = c.`analistaatendendo`
                   WHERE
-                      c.status_idstatus = 6
+                      c.status_idstatus in (4,5)
 
                   $condicao
                 ;

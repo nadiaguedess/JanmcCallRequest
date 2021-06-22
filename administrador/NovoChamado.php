@@ -86,8 +86,7 @@ $buscarAnalista= $var->freeRun("select * from usuario where TIPOUSUARIO_idTIPOUS
         <div class="form-group col-lg-12">
           <label for="exampleInputEmail1">Descrição</label>
           <textarea class="form-control" id="idtxtDesc" rows="4" cols="50" name="idtxtDesc" type="date"
-            value="<?php echo(isset($_GET['idtxtDesc']) ? $_GET['idtxtDesc']: "")?>"
-            required></textarea>
+            required><?php echo(isset($_GET['idtxtDesc']) ? $_GET['idtxtDesc']: "");?></textarea>
         </div>
       </div>
 

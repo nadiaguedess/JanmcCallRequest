@@ -321,15 +321,24 @@ if (!isset($_SESSION['LOGIN'])) { //validou sess�0�0o (deve conter em todas 
             <span class="side-nav-menu-icon d-flex mr-3">
               <i class="nova-angle-double-right"></i>
             </span>
-            <span class="side-nav-fadeout-on-closed media-body">Novo Chamado</span>
+            <span class="side-nav-fadeout-on-closed media-body">Controle de Chamados</span>
           </a>
         </li>
+        <li class="sidebar-heading h6">Relatórios</li>
         <li class="side-nav-menu-item">
           <a class="side-nav-menu-link media align-items-center" href="DashBoard.php?op=ChamadosAberto">
             <span class="side-nav-menu-icon d-flex mr-3">
               <i class="nova-angle-double-right"></i>
             </span>
             <span class="side-nav-fadeout-on-closed media-body">Chamados em aberto</span>
+          </a>
+        </li>
+        <li class="side-nav-menu-item">
+          <a class="side-nav-menu-link media align-items-center" href="DashBoard.php?op=ChamadosAndamentoAtribuido">
+            <span class="side-nav-menu-icon d-flex mr-3">
+              <i class="nova-angle-double-right"></i>
+            </span>
+            <span class="side-nav-fadeout-on-closed media-body">Chamados em Andam./Atrib.</span>
           </a>
         </li>
         <li class="side-nav-menu-item">
@@ -433,6 +442,9 @@ if (!isset($_SESSION['LOGIN'])) { //validou sess�0�0o (deve conter em todas 
                                 case 'ChamadosConcluidos':
                                     include 'ChamadosConcluidos.php';
                                     break;
+                                case 'ChamadosAndamentoAtribuido':
+                                  include 'ChamadosAndamentoAtribuido.php';
+                                  break;
                                 case 'InserirUsuario':
                                   include 'InserirUsuario.php';
                                   break;

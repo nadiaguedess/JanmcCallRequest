@@ -109,9 +109,9 @@
                 </div>
               </div>
               <!-- End Password -->
-              <div class="text-center">
+              <!-- <div class="text-center">
                 <div class="g-recaptcha" data-sitekey="6LfTlqMaAAAAABaRfgEG5_RVDu-ozkqeCeSbIHfo"></div>
-              </div>
+              </div> -->
               <!-- Submit Button -->
               <button type="submit" class="btn btn-block btn-wide btn-primary text-uppercase">Entrar</button>
               <!-- End Submit Button -->
@@ -129,7 +129,7 @@
     <footer class="small bg-white p-3 px-md-4 mt-auto bg-transparent">
       <div class="row justify-content-between">
         <div class="col-lg text-center text-lg-left  mb-3 mb-lg-0">
-          &copy; 2020 TRUSTMLM. All Rights Reserved.
+          &copy; 2021 JanmcCallRequest. All Rights Reserved.
         </div>
 
         <div class="col-lg text-center text-lg-right">
