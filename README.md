@@ -7,6 +7,7 @@ Nádia Guedes
 Matheus Francisco 
 Gabriel Gonçalves
 Caio Brandão
+André Isaac
 
 Descrição das tecnologias e linguagem utilizada para desenvolvimento:
 MySQL Workbench
